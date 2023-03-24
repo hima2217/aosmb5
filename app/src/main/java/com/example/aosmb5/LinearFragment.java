@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 public class LinearFragment extends Fragment {
 
@@ -22,15 +23,19 @@ public class LinearFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.d("Жизненный цикл LinearFragment", "Вызов onCreateView");
-        Toast.makeText(getActivity(), "Вызов onCreateView", Toast.LENGTH_SHORT).show();
-        return inflater.inflate(R.layout.linerlayout, container, false);
+        View view = inflater.inflate(R.layout.linerlayout, container, false);
+        view.findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_FragmentLinear_to_FragmentRelative);
+            }
+        });
+        return view;
+
     }
 
-    public void clickButton(){
 
-        Log.i("Тест","Работает!");
-    }
+
 
 
 }
