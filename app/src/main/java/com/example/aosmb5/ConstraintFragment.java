@@ -23,10 +23,20 @@ public class ConstraintFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.constraintleyout, container, false);
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            TextView textView = (TextView) view.findViewById(R.id.textView4);
+            textView.setText(bundle.getString("keylog2"));
+        }
         view.findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_FragmentConstraint_to_FragmentLinear);
+                Bundle bundle = new Bundle();
+                //bundle.putString("keylog3", String.valueOf(((TextView) view
+                        //.findViewById(R.id.textView4))
+                        //.getText()));
+                bundle.putString("keylog3","gfhfghfgh");
+                Navigation.findNavController(view).navigate(R.id.action_FragmentConstraint_to_FragmentLinear,bundle);
             }
         });
         return view;
