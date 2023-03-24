@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FragmentLinear"
+    >
+
+    <fragment
+        android:id="@+id/FragmentLinear"
+        android:name="com.example.aosmb5.LinearFragment"
+        android:label="Linear">
+        <action
+            android:id="@+id/action_FragmentLinear_to_FragmentRelative"
+            app:destination="@id/FragmentRelative" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/FragmentRelative"
+        android:name="com.example.aosmb5.RelativeFragment"
+        android:label="Relative">
+        <action
+            android:id="@+id/action_FragmentRelative_to_FragmentConstraint"
+            app:destination="@id/FragmentConstraint" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/FragmentConstraint"
+        android:name="com.example.aosmb5.ConstraintFragment"
+        android:label="Constraint">
+        <action
+            android:id="@+id/action_FragmentConstraint_to_FragmentLinear"
+            app:destination="@id/FragmentLinear" />
+    </fragment>
+</navigation>
